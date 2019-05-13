@@ -57,9 +57,39 @@ navLinks[5].textContent = siteContent["nav"]["nav-item-6"];
 let ctaHeader = document.querySelectorAll(".cta-text h1");
 let ctaButton = document.querySelectorAll(".cta-text button");
 let ctaImg = document.getElementById("cta-img");
-ctaHeader[0].textContent = siteContent["cta"]["h1"];
+ctaHeader[0].textContent = "DOM";
+ctaHeader[0].appendChild(document.createElement("br"));
+ctaHeader[0].appendChild(document.createTextNode("Is"));
+ctaHeader[0].appendChild(document.createElement("br"));
+ctaHeader[0].appendChild(document.createTextNode("Awesome"));
 ctaButton[0].textContent = siteContent["cta"]["button"];
 ctaImg.setAttribute("src", siteContent["cta"]["img-src"]);
 
-//let mainContentH4 = document.querySelectorAll(".text-content h4");
-//mainContentH4[0] =
+let mainContentH4 = document.querySelectorAll(".text-content h4");
+let mainContentP = document.querySelectorAll(".text-content p");
+mainContentH4[0].textContent = siteContent["main-content"]["features-h4"];
+mainContentP[0].textContent = siteContent["main-content"]["features-content"];
+mainContentH4[1].textContent = siteContent["main-content"]["about-h4"];
+mainContentP[1].textContent = siteContent["main-content"]["about-content"];
+
+let middleImg = document.getElementById("middle-img");
+middleImg.setAttribute("src", siteContent["main-content"]["middle-img-src"]);
+
+mainContentH4[2].textContent = siteContent["main-content"]["services-h4"];
+mainContentP[2].textContent = siteContent["main-content"]["services-content"];
+mainContentH4[3].textContent = siteContent["main-content"]["product-h4"];
+mainContentP[3].textContent = siteContent["main-content"]["product-content"];
+mainContentH4[4].textContent = siteContent["main-content"]["vision-h4"];
+mainContentP[4].textContent = siteContent["main-content"]["vision-content"];
+
+let contactHeader = document.querySelectorAll(".contact h4");
+let contactP = document.querySelectorAll(".contact p");
+contactHeader[0].textContent = siteContent["contact"]["contact-h4"];
+contactP[0].textContent = "123 Way 456 Street";
+contactP[0].appendChild(document.createElement("br"));
+contactP[0].appendChild(document.createTextNode("Somewhere, USA"));
+contactP[1].textContent = siteContent["contact"]["phone"];
+contactP[2].textContent = siteContent["contact"]["email"];
+
+let footerP = document.querySelectorAll("footer p");
+footerP[0].textContent = siteContent["footer"]["copyright"];
