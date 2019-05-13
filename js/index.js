@@ -46,6 +46,10 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute("src", siteContent["nav"]["img-src"]);
 
+let newNavLinks = document.querySelector("header nav");
+newNavLinks.appendChild(document.createElement("a")).textContent = "Hi";
+newNavLinks.appendChild(document.createElement("a")).textContent = "No";
+
 let navLinks = document.querySelectorAll("header nav a");
 navLinks[0].textContent = siteContent["nav"]["nav-item-1"];
 navLinks[1].textContent = siteContent["nav"]["nav-item-2"];
@@ -54,15 +58,17 @@ navLinks[3].textContent = siteContent["nav"]["nav-item-4"];
 navLinks[4].textContent = siteContent["nav"]["nav-item-5"];
 navLinks[5].textContent = siteContent["nav"]["nav-item-6"];
 
-let ctaHeader = document.querySelectorAll(".cta-text h1");
-let ctaButton = document.querySelectorAll(".cta-text button");
+navLinks.forEach(a => (a.style.color = "green"));
+
+let ctaHeader = document.querySelector(".cta-text h1");
+let ctaButton = document.querySelector(".cta-text button");
 let ctaImg = document.getElementById("cta-img");
-ctaHeader[0].textContent = "DOM";
-ctaHeader[0].appendChild(document.createElement("br"));
-ctaHeader[0].appendChild(document.createTextNode("Is"));
-ctaHeader[0].appendChild(document.createElement("br"));
-ctaHeader[0].appendChild(document.createTextNode("Awesome"));
-ctaButton[0].textContent = siteContent["cta"]["button"];
+ctaHeader.textContent = "DOM";
+ctaHeader.appendChild(document.createElement("br"));
+ctaHeader.appendChild(document.createTextNode("Is"));
+ctaHeader.appendChild(document.createElement("br"));
+ctaHeader.appendChild(document.createTextNode("Awesome"));
+ctaButton.textContent = siteContent["cta"]["button"];
 ctaImg.setAttribute("src", siteContent["cta"]["img-src"]);
 
 let mainContentH4 = document.querySelectorAll(".text-content h4");
@@ -82,14 +88,49 @@ mainContentP[3].textContent = siteContent["main-content"]["product-content"];
 mainContentH4[4].textContent = siteContent["main-content"]["vision-h4"];
 mainContentP[4].textContent = siteContent["main-content"]["vision-content"];
 
-let contactHeader = document.querySelectorAll(".contact h4");
+//stretch
+let newContactP = document.createElement("p");
+let contact = document.querySelector(".contact");
+contact
+  .appendChild(newContactP)
+  .appendChild(document.createElement("button")).textContent = "Click!";
+contact
+  .appendChild(document.createElement("div"))
+  .appendChild(document.createElement("div"));
+
+let contactDiv = document.querySelector(".contact div");
+contactDiv.style.cssText =
+  "width: 400px; height: 400px; position: relative; background: yellow";
+let contactInnerDiv = document.querySelector(".contact div div");
+contactInnerDiv.style.cssText =
+  "width: 50px; height: 50px; position: absolute; background-color: red;";
+contactInnerDiv.classList.add("animation");
+//end stretch
+
+let contactHeader = document.querySelector(".contact h4");
 let contactP = document.querySelectorAll(".contact p");
-contactHeader[0].textContent = siteContent["contact"]["contact-h4"];
+contactHeader.textContent = siteContent["contact"]["contact-h4"];
 contactP[0].textContent = "123 Way 456 Street";
 contactP[0].appendChild(document.createElement("br"));
 contactP[0].appendChild(document.createTextNode("Somewhere, USA"));
 contactP[1].textContent = siteContent["contact"]["phone"];
 contactP[2].textContent = siteContent["contact"]["email"];
+
+let contactButton = document.querySelector(".contact p button");
+contactButton.onclick = function() {
+  var elem = contactInnerDiv;
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++;
+      elem.style.top = pos + "px";
+      elem.style.left = pos + "px";
+    }
+  }
+};
 
 let footerP = document.querySelectorAll("footer p");
 footerP[0].textContent = siteContent["footer"]["copyright"];
