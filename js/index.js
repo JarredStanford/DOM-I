@@ -105,17 +105,6 @@ let contactInnerDiv = document.querySelector(".contact div div");
 contactInnerDiv.style.cssText =
   "width: 50px; height: 50px; position: absolute; background-color: red;";
 contactInnerDiv.classList.add("animation");
-//end stretch
-
-let contactHeader = document.querySelector(".contact h4");
-let contactP = document.querySelectorAll(".contact p");
-contactHeader.textContent = siteContent["contact"]["contact-h4"];
-contactP[0].textContent = "123 Way 456 Street";
-contactP[0].appendChild(document.createElement("br"));
-contactP[0].appendChild(document.createTextNode("Somewhere, USA"));
-contactP[1].textContent = siteContent["contact"]["phone"];
-contactP[2].textContent = siteContent["contact"]["email"];
-
 let contactButton = document.querySelector(".contact p button");
 contactButton.onclick = function() {
   var elem = contactInnerDiv;
@@ -131,6 +120,16 @@ contactButton.onclick = function() {
     }
   }
 };
+//end stretch
+
+let contactHeader = document.querySelector(".contact h4");
+let contactP = document.querySelectorAll(".contact p");
+contactHeader.textContent = siteContent["contact"]["contact-h4"];
+contactP[0].textContent = "123 Way 456 Street";
+contactP[0].appendChild(document.createElement("br"));
+contactP[0].appendChild(document.createTextNode("Somewhere, USA"));
+contactP[1].textContent = siteContent["contact"]["phone"];
+contactP[2].textContent = siteContent["contact"]["email"];
 
 let footerP = document.querySelectorAll("footer p");
 footerP[0].textContent = siteContent["footer"]["copyright"];
